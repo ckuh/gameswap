@@ -3,13 +3,7 @@ var mysql = require('mysql');
 var connection = {};
 
 if (process.env.DATABASE_URL) {
-  connection = {
-    host: process.env.DATABASE_URL,
-    port: process.env.PORT,
-    user: "root",
-    password: "",
-    database: "gameswap"
-  };
+  connection = process.env.DATABASE_URL
 } else {
   connection = {
     user: "root",
