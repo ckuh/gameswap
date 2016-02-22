@@ -5,7 +5,7 @@ var connection = {};
 if (process.env.DATABASE_URL) {
   connection = {
     host: process.env.DATABASE_URL,
-    posrt: process.env.PORT,
+    port: process.env.PORT,
     user: "root",
     password: "",
     database: "gameswap"
