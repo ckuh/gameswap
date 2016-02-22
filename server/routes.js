@@ -27,7 +27,7 @@ router.post('/signin',function(req, res, next) {
   password = req.body.user.password;
 
   db.findUser(email, function(data) {
-    if(data.length){
+    if(data){
       var foundUser = data[0];
       bcrypt.compare(password, foundUser.password, function(err, result){
         if(err) {
@@ -71,7 +71,7 @@ router.post('/signup',function(req, res, next) {
   var geoloc = req.body.user.geoloc;
 
   db.findUser(email,function(data) {
-    if(!data.length) {
+    if(!data) {
       bcrypt.genSalt(10, function(err, salt){
         bcrypt.hash(password, salt, function(err, hash){
           db.addUser(email, username, hash, city, geoloc, function(user) {
